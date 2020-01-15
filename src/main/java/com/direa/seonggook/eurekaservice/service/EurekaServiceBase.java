@@ -56,7 +56,7 @@ public class EurekaServiceBase {
             } catch (Throwable e) {
                 System.out.println("Eureka Server에 등록되었는지 확인합니다.");
                 try {
-                    Thread.sleep(5000);
+                    Thread.sleep(1000);
                 } catch (InterruptedException e1) {
                     e1.printStackTrace();
                 }
