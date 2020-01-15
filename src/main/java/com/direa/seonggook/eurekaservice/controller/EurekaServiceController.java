@@ -1,5 +1,6 @@
 package com.direa.seonggook.eurekaservice.controller;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -7,8 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class EurekaServiceController {
 
     @GetMapping("/")
-    public String helloService() {
+    public ResponseEntity helloService() {
 
-        return "hello from Eureka Service!";
+        return ResponseEntity.accepted().body("ok");
     }
 }
