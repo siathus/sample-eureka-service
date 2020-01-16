@@ -11,6 +11,13 @@ public class EurekaServiceController {
     @GetMapping("/")
     public ResponseEntity helloService() {
 
-        return new ResponseEntity<String>("Hello from Eureka Service!", HttpStatus.OK);
+        String body = "";
+        if (Math.random() > 0.5) {
+            body = "First Hello";
+        } else {
+            body = "Second Hello";
+        }
+//        return new ResponseEntity<String>("Hello from Eureka Service!", HttpStatus.OK);
+        return new ResponseEntity<String>(body, HttpStatus.OK);
     }
 }

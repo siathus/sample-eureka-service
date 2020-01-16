@@ -37,7 +37,7 @@ public class EurekaServiceBase {
         applicationInfoManager.setInstanceStatus(InstanceInfo.InstanceStatus.UP);
         waitForRegistrationWithEureka(eurekaClient);
         try {
-            Thread.sleep(5 * 1000);
+            Thread.sleep(2 * 1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -45,7 +45,7 @@ public class EurekaServiceBase {
     }
 
     private void waitForRegistrationWithEureka(EurekaClient eurekaClient) {
-        String vipAddress = configInstance.getStringProperty("eureka.vipAddress", "eureka.mydomain.net").get();
+        String vipAddress = configInstance.getStringProperty("eureka.vipAddress", "sampleservice.mydomain.net").get();
         System.out.println(vipAddress);
         InstanceInfo nextServerInfo = null;
         while (nextServerInfo == null) {
