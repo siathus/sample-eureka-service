@@ -13,6 +13,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 
+import java.util.Collections;
+
 @SpringBootApplication
 public class EurekaServiceApplication {
 
@@ -37,7 +39,9 @@ public class EurekaServiceApplication {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(EurekaServiceApplication.class, args);
+        SpringApplication app = new SpringApplication(EurekaServiceApplication.class);
+        app.setDefaultProperties(Collections.singletonMap("server.port", 8112));
+        app.run(args);
     }
 
     @EventListener(ApplicationReadyEvent.class)
